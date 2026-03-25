@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment Withdrawal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <h1>Payment Withdrawal System</h1>
+
+  <div class="layout">
+
+    <!-- Left: Wallet + Form -->
+    <div>
+      <div class="card" style="margin-bottom: 16px;">
+        <h2>Wallet</h2>
+        <div class="balance-display" id="balance">₹0.00</div>
+        <div class="balance-label">Available balance</div>
+        <div class="user-switch">
+          <button data-uid="" data-name="Alice" onclick="selectUser(this)">Alice</button>
+          <button data-uid="" data-name="Bob" onclick="selectUser(this)">Bob</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>New Withdrawal</h2>
+
+        <label for="amount">Amount (₹)</label>
+        <input type="number" id="amount" placeholder="e.g. 100" min="1" />
+
+        <label for="destination">Destination</label>
+        <input type="text" id="destination" placeholder="e.g. HDFC_ACC_1234" />
+
+        <button id="submitBtn" onclick="submitWithdrawal()">Submit Withdrawal</button>
+
+        <div class="alert" id="alert"></div>
+      </div>
+    </div>
+
+    <!-- Right: Transaction Log -->
+    <div class="card">
+      <h2>Transaction Log</h2>
+      <div class="log-list" id="logList">
+        <div class="empty" id="logEmpty">No transactions yet.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Stats -->
+  <div class="stats">
+    <div class="stat">
+      <div class="num" id="statTotal">0</div>
+      <div class="lbl">Total</div>
+    </div>
+    <div class="stat">
+      <div class="num" id="statSuccess">0</div>
+      <div class="lbl">Successful</div>
+    </div>
+    <div class="stat">
+      <div class="num" id="statFailed">0</div>
+      <div class="lbl">Failed</div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
